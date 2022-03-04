@@ -1,0 +1,15 @@
+{
+  "name": "tell-me-why",
+  "version": "0",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon index.js"
+  },
+  "type": "module",
+  "license": "MIT",
+  "dependencies": {
+    "dotenv": "^16.0.0",
+    "express": "^4.17.3",
+    "prisma": "^3.10.0"
+  }
+}
