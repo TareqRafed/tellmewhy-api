@@ -6,6 +6,9 @@ const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
+app.get('/', (rq, rs) => {
+  rs.send('ra ra ra')
+})
 
 const port = 3000
 

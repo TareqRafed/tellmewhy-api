@@ -3,7 +3,8 @@
   "version": "0",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon index.js"
+    "start": "NODE_ENV=prod node index.js",
+    "fuck": "NODE_ENV=dev nodemon index.js"
   },
   "type": "module",
   "license": "MIT",
