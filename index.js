@@ -1,5 +1,5 @@
 import express from "express";
-// import 'dotenv/config';
+import { PORT } from './src/constants/env.constants.js'
 
 const app = express();
 
@@ -10,9 +10,8 @@ app.get('/', (rq, rs) => {
   rs.send('ra ra ra')
 })
 
-const port = 3000
 
-app.listen(port, () => {
-    console.log(`Example app listening on port ${port}`)
-    // console.log(`env: ${process.env.NODE_ENV}`)
+app.listen(PORT, () => {
+    console.log(`Example app listening on port ${PORT}`)
+    console.log(`env: ${process.env.NODE_ENV}`)
   })
