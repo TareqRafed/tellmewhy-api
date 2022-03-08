@@ -1,6 +1,4 @@
-const isAuthenticated(tbd) {
-    // TODO: Check authentication
-    return (req, res, next) => next()
-}
-
+const isAuthenticated = (tbd) =>
+// TODO: Check authentication
+  (req, res, next) => next();
 export default isAuthenticated;

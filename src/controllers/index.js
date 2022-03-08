@@ -1,1 +1,1 @@
-export { getPatterns, updateRoutes } from './patterns'
+export { getPatterns } from './patterns';

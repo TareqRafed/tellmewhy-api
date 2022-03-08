@@ -12,5 +12,10 @@
     "dotenv": "^16.0.0",
     "express": "^4.17.3",
     "prisma": "^3.10.0"
+  },
+  "devDependencies": {
+    "eslint": "^8.10.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-plugin-import": "^2.25.4"
   }
 }
