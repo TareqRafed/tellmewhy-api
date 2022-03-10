@@ -10,7 +10,7 @@ app.use(express.urlencoded({extended: true}));
 app.use(routes);
 
 app.get('/', (rq, rs) => {
-	rs.send('ra ra ra');
+	rs.send('ra ra ra test');
 });
 
 app.listen(PORT, () => {
