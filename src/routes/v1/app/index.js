@@ -1,3 +1,4 @@
-import patterns from './patterns.route';
+/* eslint-disable import/prefer-default-export */
+import patterns from './patterns.route.js'
 
-export { patterns };
+export { patterns }

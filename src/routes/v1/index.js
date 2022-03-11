@@ -1,6 +1,6 @@
 import express from 'express'
 
-import chat from './chat/index'
+import chat from './chat/index.js'
 
 const router = express.Router()
 

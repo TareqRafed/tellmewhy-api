@@ -1,5 +1,5 @@
 import cors from 'cors'
-import { origin } from '../constants/env.constants'
+import { origin } from '../constants/env.constants.js'
 
 export default cors({
     origin,

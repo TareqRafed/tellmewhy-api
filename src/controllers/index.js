@@ -1,1 +1,2 @@
-export { getPatterns } from './patterns';
+export { getPatterns } from './patterns.js'
+export { default as chat } from './chat.js'

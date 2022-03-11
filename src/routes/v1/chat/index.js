@@ -1,5 +1,5 @@
 import express from 'express'
-import chat from './analyseChat'
+import chat from './analyseChat.js'
 
 const router = express.Router()
 
