@@ -1,9 +1,9 @@
-import express from 'express';
+import express from 'express'
 
-import chat from './chat/index.js';
+import chat from './chat/index'
 
-const router = express.Router();
+const router = express.Router()
 
-router.use('/api/v1', chat);
+router.use('/api/v1', chat)
 
-export default router;
+export default router
