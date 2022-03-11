@@ -1,2 +1,2 @@
-export { default as isAuthenticated } from './isAuthenticated'
-export { default as cors } from './cors'
+export { default as isAuthenticated } from './isAuthenticated.js'
+export { default as cors } from './cors.js'
