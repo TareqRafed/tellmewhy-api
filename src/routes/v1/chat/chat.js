@@ -1,7 +1,7 @@
 import express from 'express'
 import fileUpload from 'express-fileupload'
 
-import chat from '../../../controllers/chat.js'
+import { chat } from '../../../controllers/index.js'
 
 const router = express.Router()
 
