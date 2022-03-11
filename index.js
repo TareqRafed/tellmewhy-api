@@ -1,7 +1,7 @@
 import express from 'express'
-import { PORT } from './src/constants/env.constants'
-import routes from './src/routes/v1'
-import { cors } from './src/middlewares'
+import { PORT } from './src/constants/env.constants.js'
+import routes from './src/routes/v1/index.js'
+import { cors } from './src/middlewares/index.js'
 
 const app = express()
 
