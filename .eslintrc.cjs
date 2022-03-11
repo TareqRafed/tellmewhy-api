@@ -11,7 +11,6 @@ module.exports = {
     plugins: ['prettier'],
     rules: {
         'import/extensions': ['error', 'always'],
-
         'prettier/prettier': 'error',
     },
 }
