@@ -1,10 +1,10 @@
-import express from 'express';
-import fileUpload from 'express-fileupload';
+import express from 'express'
+import fileUpload from 'express-fileupload'
 
-import chat from '../../../controllers/chat.js';
+import chat from '../../../controllers/chat.js'
 
-const router = express.Router();
+const router = express.Router()
 
-router.use(fileUpload()).post('/chat', chat);
+router.use(fileUpload()).post('/chat', chat)
 
-export default router;
+export default router
