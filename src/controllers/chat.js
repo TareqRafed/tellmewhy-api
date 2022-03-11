@@ -1,13 +1,39 @@
-import formidable from 'formidable'
+const processData = (fileData) => {
+    const msgs = fileData.toString('utf-8').split(/\r\n|\n|\r/)
 
-const form = new formidable.IncomingForm()
+    const pattern = /^\[?(\d+[./]\d+[./]\d+),\s+[^\]-]+[\]-]?\s([^:]+):\s*(.*)/
 
-const chat = function (req, res) {
-    form.parse(req, function (err, fields, files) {
-        console.log(files)
+    const data = []
+
+    let prevday
+    msgs.forEach((line) => {
+        const match = pattern.exec(line)
+        if (!match) return
+        const [, date, name] = match
+
+        if (prevday && prevday.date === date) {
+            if (name in prevday.recipients) prevday.recipients[name] += 1
+            else prevday.recipients[name] = 1
+        } else {
+            prevday = {
+                date,
+                recipients: {},
+            }
+            prevday.recipients[name] = 1
+            data.push(prevday)
+        }
     })
-    console.log('after')
-    res.end('hi')
+    return data
+}
+
+// const parseFile = stream => {};
+
+const chat = (req, res) => {
+    const data = processData(req.files.chat.data)
+    res.json({
+        status: 'success',
+        data,
+    })
 }
 
 export default chat
