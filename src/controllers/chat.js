@@ -25,11 +25,8 @@ const processData = (fileData) => {
     })
     return data
 }
-<<<<<<< HEAD
 
 // const parseFile = stream => {};
-=======
->>>>>>> ab5061a (refactored code)
 
 const chat = (req, res) => {
     const data = processData(req.files.chat.data)
