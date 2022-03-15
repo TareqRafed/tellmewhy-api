@@ -28,12 +28,24 @@ const processData = (fileData) => {
 
 // const parseFile = stream => {};
 
-const chat = (req, res) => {
+const chat = (req, res, next) => {
     const data = processData(req.files.chat.data)
-    res.json({
-        status: 'success',
+    if (!data) {
+        res.status(400)
+        res.locals = {
+            message: 'Miessing File or file corrupted',
+            data: null,
+            success: false,
+        }
+        next()
+    }
+    res.status(200)
+    res.locals = {
+        message: 'Chat created successfuly',
+        success: true,
         data,
-    })
+    }
+    next()
 }
 
 export default chat
