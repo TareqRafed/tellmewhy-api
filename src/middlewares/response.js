@@ -6,18 +6,20 @@ const handleMessage = (message, success) => {
 
 /**
  * Format response
- * @param {Object} Object - Contains request state
- * @param {String} Object.message - The message. <----- how should this be documented?
- * @param {any} Object.data - data to respone with
- * @param {Boolean} Object.success - whether request succeeded or not
+ * @param {request} req - Contains request state
  * @param {response} res - express response
+ * @param {String} res.locals.message - The message. <----- how should this be documented?
+ * @param {any} res.locals.data - data to respone with
+ * @param {Boolean} res.locals.success - whether request succeeded or not
  */
-const response = ({ message, data, success }, res) => {
-    const msg = handleMessage(message)
+const response = (req, res) => {
+    const { message, success, data } = res.locals
+    const msg = handleMessage(message, success)
 
     res.send({
-        success,
+        lang: 'en',
         message: msg,
+        success,
         data,
     })
 }

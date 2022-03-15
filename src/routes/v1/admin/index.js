@@ -3,6 +3,6 @@ import login from './login.route.js'
 
 const router = express.Router()
 
-router.use('admin/', login)
+router.use('/admin', login)
 
 export default router
