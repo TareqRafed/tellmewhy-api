@@ -12,14 +12,14 @@ const handleMessage = (message, success) => {
  * @param {any} res.locals.data - data to respone with
  * @param {Boolean} res.locals.success - whether request succeeded or not
  */
-const response = (req, res) => {
+const response = (_, res) => {
     const { message, success, data } = res.locals
     const msg = handleMessage(message, success)
 
-    res.send({
+    res.json({
         lang: 'en',
-        message: msg,
         success,
+        message: msg,
         data,
     })
 }
