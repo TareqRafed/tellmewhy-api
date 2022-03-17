@@ -1,5 +1,5 @@
 const processData = (fileData) => {
-    const msgs = fileData.toString('utf-8').split(/\r\n|\n|\r/)
+    const msgs = fileData.toString('utf-8').split(/\r?\n|\r/)
 
     const pattern = /^\[?(\d+[./]\d+[./]\d+),\s+[^\]-]+[\]-]?\s([^:]+):\s*(.*)/
 
@@ -7,8 +7,13 @@ const processData = (fileData) => {
 
     let prevday
     msgs.forEach((line) => {
+        // Skip empty lines
+        if (!line) return
+
         const match = pattern.exec(line)
-        if (!match) return
+
+        // Throw an error to break the forEach and return from function
+        if (!match) throw new Error('Error: File Format!')
         const [, date, name] = match
 
         if (prevday && prevday.date === date) {
@@ -26,14 +31,22 @@ const processData = (fileData) => {
     return data
 }
 
-// const parseFile = stream => {};
-
-const chat = (req, res) => {
-    const data = processData(req.files.chat.data)
-    res.json({
-        status: 'success',
-        data,
-    })
+const chat = (req, res, next) => {
+    try {
+        const data = processData(req.files.chat.data)
+        res.locals = {
+            success: true,
+            message: 'succesfully parsed file',
+            data,
+        }
+    } catch (err) {
+        res.locals = {
+            success: false,
+            message: err.message,
+            data: null,
+        }
+    }
+    next()
 }
 
 export default chat
