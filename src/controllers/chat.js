@@ -1,5 +1,9 @@
 const processData = (fileData) => {
-    const msgs = fileData.toString('utf-8').split(/\r?\n|\r/)
+    const msgs = fileData
+        .toString('utf-8')
+        .split(/\r?\n|\r/)
+        .filter((line) => line)
+    if (!msgs.length) throw new Error('Error: File is empty')
 
     const pattern = /^\[?(\d+[./]\d+[./]\d+),\s+[^\]-]+[\]-]?\s([^:]+):\s*(.*)/
 
@@ -13,7 +17,7 @@ const processData = (fileData) => {
         const match = pattern.exec(line)
 
         // Throw an error to break the forEach and return from function
-        if (!match) throw new Error('Error: File Format!')
+        if (!match) throw new Error('Error: Wrong file format!')
         const [, date, name] = match
 
         if (prevday && prevday.date === date) {
