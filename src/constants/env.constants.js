@@ -1,6 +1,6 @@
 import dotenv from 'dotenv'
 
-const envFilePath = `.env.${process.env.NODE_ENV}`
+const envFilePath = `.${process.env.NODE_ENV}.env`
 
 dotenv.config({ silent: true, path: envFilePath })
 
