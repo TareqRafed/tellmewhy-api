@@ -19,3 +19,5 @@ app.listen(PORT, () => {
     console.log(`Example app listening on port ${PORT}`)
     console.log(`env: ${process.env.NODE_ENV}`)
 })
+
+export default app
