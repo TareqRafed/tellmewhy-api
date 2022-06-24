@@ -1,27 +1,36 @@
 {
   "name": "tell-me-why",
-  "version": "0",
+  "version": "0.0.1",
   "main": "index.js",
   "scripts": {
     "start": "NODE_ENV=prod node index.js",
     "fuck": "NODE_ENV=dev nodemon index.js",
-    "lint": "eslint ./src --ext .js"
+    "lint": "eslint ./src --ext .js",
+    "migrate:dev": "dotenv -e .dev.env -- npx prisma migrate dev --name init",
+    "test": "NODE_OPTIONS=--experimental-vm-modules npx jest"
   },
   "type": "module",
   "license": "MIT",
   "dependencies": {
+    "@prisma/client": "3.15.2",
+    "bcryptjs": "^2.4.3",
     "cors": "^2.8.5",
     "dotenv": "^16.0.0",
     "express": "^4.17.3",
     "express-fileupload": "^1.3.1",
-    "prisma": "^3.10.0"
+    "jsonwebtoken": "^8.5.1",
+    "prisma": "^3.15.2"
   },
   "devDependencies": {
-    "eslint": "^8.10.0",
+    "@types/jest": "^28.1.2",
+    "eslint": "^8.18.0",
     "eslint-config-airbnb-base": "^15.0.0",
     "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-import": "^2.25.4",
+    "eslint-plugin-jest": "^26.5.3",
     "eslint-plugin-prettier": "^4.0.0",
-    "prettier": "^2.5.1"
+    "jest": "^28.1.1",
+    "prettier": "^2.5.1",
+    "supertest": "^6.2.3"
   }
 }
